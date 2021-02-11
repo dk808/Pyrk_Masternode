@@ -10,4 +10,5 @@ Script will ask for BLS Secret Key(operatorSecret) that you get from the bls gen
 bash <(curl -s https://raw.githubusercontent.com/dk808/Pyrk_Masternode/main/install.sh)
 ```
 > ℹ Info: This will also create a script to update binaries.  
+
 If you need any support please join their [Discord](https://discord.gg/4FrYVZJpkD).
