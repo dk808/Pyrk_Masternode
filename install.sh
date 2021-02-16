@@ -51,7 +51,7 @@ function wipe_clean() {
     sudo killall $COIN_DAEMON > /dev/null 2>&1
     sudo rm /usr/local/bin/$COIN_NAME* > /dev/null 2>&1 && sleep 1
     sudo rm /usr/bin/$COIN_NAME* > /dev/null 2>&1 && sleep 1
-    rm update.sh
+    rm update.sh > /dev/null 2>&1
     rm -rf $BOOTSTRAP_ZIPFILE
     rm -rf sentinel
 }
@@ -208,9 +208,9 @@ EOF
 function install_sentinel() {
     if whiptail --yesno "Would you like to install sentinel?" 8 39; then
         echo -e "${YELLOW}Installing sentinel...${NC}"
-        git clone https://github.com/pyrkcommunity/sentinel.git && cd sentinel
+        git clone -b python3 https://github.com/pyrkcommunity/sentinel.git && cd sentinel
         virtualenv -p $(which python3) ./venv
-        ./venv/bin/pip install -r requirements.txt
+        ./venv/bin/pip3 install -r requirements.txt
         #sentinel conf
         SENTINEL_CONF=$(cat <<EOF
 pyrk_conf=$HOME/$CONFIG_DIR/$CONFIG_FILE
