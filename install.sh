@@ -129,6 +129,8 @@ function create_conf() {
     RPCUSER=$(pwgen -1 8 -n)
     PASSWORD=$(pwgen -1 20 -n)
     masternodeblsprivkey=$(whiptail --inputbox "Enter your Masternode BLS secret key" 8 75 3>&1 1>&2 2>&3)
+    # old system settings required during transition
+    masternodeprivkey=$(whiptail --inputbox "Enter your Masternode Priv Key(masternode genkey)" 8 75 3>&1 1>&2 2>&3)
     echo -e "${YELLOW}Creating Conf File...${NC}"
     sleep 1
     mkdir $HOME/$CONFIG_DIR > /dev/null 2>&1
@@ -143,6 +145,8 @@ server=1
 daemon=1
 listen=1
 masternodeblsprivkey=$masternodeblsprivkey
+masternode=1
+masternodeprivkey=$masternodeprivkey
 externalip=$WANIP
 addnode=167.86.79.133
 addnode=145.209.168.81
