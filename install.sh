@@ -156,7 +156,8 @@ EOF
 
 function install_bins() {
     echo -e "${YELLOW}Installing latest binaries...${NC}"
-    WALLET_TAR=$(curl -s https://api.github.com/repos/pyrkcommunity/pyrk/releases/latest | jq -r '.assets[] | select(.name|test("linux64.")) | .browser_download_url')
+    #WALLET_TAR=$(curl -s https://api.github.com/repos/pyrkcommunity/pyrk/releases/latest | jq -r '.assets[] | select(.name|test("linux64.")) | .browser_download_url')
+    WALLET_TAR='https://www.dropbox.com/s/b8cus0supl2xf5u/Pyrk_0.13.0.5_Ubuntu18.tar.gz'
     mkdir temp
     curl -L $WALLET_TAR | tar xz -C ./temp; sudo mv ./temp/$COIN_DAEMON ./temp/$COIN_CLI ./temp/$COIN_NAME-tx $COIN_PATH
     sudo chmod 755 ${COIN_PATH}/${COIN_NAME}*
